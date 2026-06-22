@@ -413,40 +413,83 @@ img {
     border-radius:15px;
 
 }
+.navbar {
+
+    width:90%;
+    margin:20px auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 25px;
+
+    background:#222;
+
+    border-radius:20px;
+
+    box-shadow:0 0 20px cyan;
+
+}
 
 
-.navbar h2 {
+.logo {
 
     color:cyan;
 
+    font-size:25px;
+
+    font-weight:bold;
+
 }
 
 
-.navbar ul {
+.menu {
 
     display:flex;
-    gap:20px;
 
-    list-style:none;
+    gap:25px;
 
 }
 
 
-.navbar li {
+.menu a {
 
     color:white;
 
-    cursor:pointer;
+    text-decoration:none;
+
+    font-size:18px;
 
     transition:0.3s;
 
 }
 
 
-.navbar li:hover {
+.menu a:hover {
 
     color:cyan;
 
     transform:scale(1.1);
 
 }
+
+
+@media(max-width:600px){
+
+.navbar{
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.menu{
+
+    gap:15px;
+
+}
+
+}
+

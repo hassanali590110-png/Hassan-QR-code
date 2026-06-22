@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hassan QR Code Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+    
+    <div class="container">
+
+
+        <h1>
+            QR Code Generator
+        </h1>
+      
+        <img src="logo.png" alt="Logo">
+
+        <p>
+            Created by Hassan Ali 🚀
+        </p>
+
+
+        <input type="text" id="qrText" placeholder="Enter text or link">
+
+
+        <button onclick="generateQR()">
+            Generate QR
+        </button>
+
+
+        <button onclick="clearQR()">
+            Clear
+        </button>
+
+        <button onclick="toggleMode()">
+            🌙 Dark / ☀️ Light
+        </button>
+
+
+        <div id="qrcode"></div>
+
+
+        <button onclick="downloadQR()">
+            Download QR
+        </button>
+
+
+        <button onclick="copyLink()">
+            Copy Link
+        </button>
+
+        <button>Click Me 😎</button>
+
+
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

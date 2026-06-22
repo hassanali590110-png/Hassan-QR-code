@@ -400,3 +400,53 @@ button:hover {
 img {
     animation: floatImage 3s ease-in-out infinite;
 }
+.navbar {
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px;
+
+    background:#111;
+
+    border-radius:15px;
+
+}
+
+
+.navbar h2 {
+
+    color:cyan;
+
+}
+
+
+.navbar ul {
+
+    display:flex;
+    gap:20px;
+
+    list-style:none;
+
+}
+
+
+.navbar li {
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+.navbar li:hover {
+
+    color:cyan;
+
+    transform:scale(1.1);
+
+}

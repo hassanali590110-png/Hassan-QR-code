@@ -1,162 +1,119 @@
-function generateQR() {
+function generateQR(){
 
-    let text = document.getElementById("qrText").value;
+    let text=document.getElementById("qrText").value;
 
-    let qrBox = document.getElementById("qrcode");
+    let color=document.getElementById("qrColor").value;
 
+    let qrBox=document.getElementById("qrcode");
 
-    if (text.trim() === "") {
-
+    if(text.trim()===""){
         alert("Please enter text or link");
-
         return;
-
     }
 
+    qrBox.innerHTML="";
 
-    // Old QR remove
-
-    qrBox.innerHTML = "";
-
-
-    // Create New QR
-
-    new QRCode(qrBox, {
-
-        text: text,
-
-        width: 200,
-
-        height: 200
-
+    new QRCode(qrBox,{
+        text:text,
+        width:220,
+        height:220,
+        colorDark:color,
+        colorLight:"#ffffff"
     });
 
-
+    saveHistory(text);
 }
 
+function clearQR(){
 
+    document.getElementById("qrText").value="";
 
-function clearQR() {
-
-    document.getElementById("qrText").value = "";
-
-    document.getElementById("qrcode").innerHTML = "";
-
+    document.getElementById("qrcode").innerHTML="";
 }
 
+function downloadQR(){
 
+    let img=document.querySelector("#qrcode img");
 
-function downloadQR() {
+    if(img){
 
-    let qrImage = document.querySelector("#qrcode img");
+        let a=document.createElement("a");
 
+        a.href=img.src;
 
-    if (qrImage) {
-
-        let a = document.createElement("a");
-
-        a.href = qrImage.src;
-
-        a.download = "Hassan-QR-Code.png";
+        a.download="Hassan-QR-Code.png";
 
         a.click();
 
+    }else{
+
+        alert("Generate QR First");
     }
-
-    else {
-
-        alert("Please generate QR first");
-
-    }
-
 }
 
+function copyLink(){
 
+    let text=document.getElementById("qrText").value;
 
-function copyLink() {
-
-    let text = document.getElementById("qrText").value;
-
-
-    if (text.trim() === "") {
-
+    if(text===""){
         alert("Nothing to copy");
-
         return;
-
     }
-
 
     navigator.clipboard.writeText(text);
 
-
-    alert("Link copied successfully!");
-
-}
-function toggleMode() {
-
-```
-document.body.classList.toggle("light-mode");
-
-if(document.body.classList.contains("light-mode")){
-    localStorage.setItem("theme","light");
-} else {
-    localStorage.setItem("theme","dark");
-}
-```
-
+    alert("Link Copied!");
 }
 
-window.onload = function(){
+function toggleMode(){
 
-```
-let theme = localStorage.getItem("theme");
+    document.body.classList.toggle("light-mode");
 
-if(theme === "light"){
-    document.body.classList.add("light-mode");
+    if(document.body.classList.contains("light-mode")){
+        localStorage.setItem("theme","light");
+    }else{
+        localStorage.setItem("theme","dark");
+    }
 }
-
-showHistory();
-```
-
-};
 
 function saveHistory(text){
 
-```
-let history = JSON.parse(localStorage.getItem("qrHistory")) || [];
+    let history=JSON.parse(localStorage.getItem("qrHistory")) || [];
 
-history.unshift(text);
+    history.unshift(text);
 
-history = history.slice(0,5);
+    history=history.slice(0,5);
 
-localStorage.setItem("qrHistory", JSON.stringify(history));
+    localStorage.setItem("qrHistory",JSON.stringify(history));
 
-showHistory();
-```
-
+    showHistory();
 }
 
 function showHistory(){
 
-```
-let list = document.getElementById("history");
+    let list=document.getElementById("history");
 
-if(!list) return;
+    list.innerHTML="";
 
-list.innerHTML = "";
+    let history=JSON.parse(localStorage.getItem("qrHistory")) || [];
 
-let history = JSON.parse(localStorage.getItem("qrHistory")) || [];
+    history.forEach(item=>{
 
-history.forEach(item => {
+        let li=document.createElement("li");
 
-    let li = document.createElement("li");
+        li.textContent=item;
 
-    li.textContent = item;
+        list.appendChild(li);
+    });
+}
 
-    list.appendChild(li);
+window.onload=function(){
 
-});
-```
+    let theme=localStorage.getItem("theme");
 
+    if(theme==="light"){
+        document.body.classList.add("light-mode");
+    }
+
+    showHistory();
 }

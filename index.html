@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -7,67 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hassan QR Code Generator</title>
 
-```
-<link rel="stylesheet" href="style.css">
-```
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-```
-<div class="container">
+    <div class="container">
 
-    <img src="logo.png" alt="Logo" class="logo">
+        <img src="logo.png" alt="Logo" class="logo">
 
-    <h1>QR Code Generator</h1>
+        <h1>QR Code Generator</h1>
 
-    <p>Create QR Codes Instantly 🚀</p>
+        <p>Create QR Codes Instantly 🚀</p>
 
-    <input
-        type="text"
-        id="qrText"
-        placeholder="Enter text or link">
+        <input
+            type="text"
+            id="qrText"
+            placeholder="Enter text or link">
 
-    <label for="qrColor">Choose QR Color</label>
+        <label for="qrColor">Choose QR Color</label>
 
-    <input
-        type="color"
-        id="qrColor"
-        value="#000000">
+        <input
+            type="color"
+            id="qrColor"
+            value="#000000">
 
-    <button onclick="generateQR()">
-        Generate QR
-    </button>
+        <button onclick="generateQR()">Generate QR</button>
 
-    <button onclick="clearQR()">
-        Clear
-    </button>
+        <button onclick="clearQR()">Clear</button>
 
-    <div id="qrcode"></div>
+        <div id="qrcode"></div>
 
-    <button onclick="downloadQR()">
-        Download QR
-    </button>
+        <button onclick="downloadQR()">Download QR</button>
 
-    <button onclick="copyLink()">
-        Copy Link
-    </button>
+        <button onclick="copyLink()">Copy Link</button>
 
-    <button onclick="toggleMode()">
-        🌙 Dark / ☀️ Light
-    </button>
+        <button onclick="toggleMode()">🌙 Dark / ☀️ Light</button>
 
-    <h3>Recent QR Codes</h3>
+        <h3>Recent QR Codes</h3>
 
-    <ul id="history"></ul>
+        <ul id="history"></ul>
 
-</div>
+    </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-<script src="script.js"></script>
-```
+    <script src="script.js"></script>
 
 </body>
 

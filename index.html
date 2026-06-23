@@ -2,14 +2,11 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Hassan QR Code Generator</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -22,43 +19,30 @@
 
         <p>Create QR Codes Instantly 🚀</p>
 
-        <input
-             <label>🎨 QR Color</label>
+        <input type="text" id="qrText" placeholder="Enter text or link">
+
         <input type="color" id="qrColor" value="#000000">
 
-<h3>📜 Recent QR Codes</h3>
-<ul id="history"></ul>
+        <button onclick="generateQR()">Generate QR</button>
 
-           
-            type="text"
-            id="qrText"
-            placeholder="Enter text or link">
-
-        <button onclick="generateQR()">
-            Generate QR
-        </button>
-
-        <button onclick="clearQR()">
-            Clear
-        </button>
+        <button onclick="clearQR()">Clear</button>
 
         <div id="qrcode"></div>
 
-        <button onclick="downloadQR()">
-            Download QR
-        </button>
+        <button onclick="downloadQR()">Download QR</button>
 
-        <button onclick="copyLink()">
-            Copy Link
-        </button>
+        <button onclick="copyLink()">Copy Link</button>
 
-              
+        <button onclick="toggleMode()">🌙 Dark / ☀️ Light</button>
+
+        <h3>Recent QR Codes</h3>
+
+        <ul id="history"></ul>
+
     </div>
 
-    <!-- QR Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
 
 </body>

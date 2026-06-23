@@ -93,3 +93,70 @@ function copyLink() {
     alert("Link copied successfully!");
 
 }
+function toggleMode() {
+
+```
+document.body.classList.toggle("light-mode");
+
+if(document.body.classList.contains("light-mode")){
+    localStorage.setItem("theme","light");
+} else {
+    localStorage.setItem("theme","dark");
+}
+```
+
+}
+
+window.onload = function(){
+
+```
+let theme = localStorage.getItem("theme");
+
+if(theme === "light"){
+    document.body.classList.add("light-mode");
+}
+
+showHistory();
+```
+
+};
+
+function saveHistory(text){
+
+```
+let history = JSON.parse(localStorage.getItem("qrHistory")) || [];
+
+history.unshift(text);
+
+history = history.slice(0,5);
+
+localStorage.setItem("qrHistory", JSON.stringify(history));
+
+showHistory();
+```
+
+}
+
+function showHistory(){
+
+```
+let list = document.getElementById("history");
+
+if(!list) return;
+
+list.innerHTML = "";
+
+let history = JSON.parse(localStorage.getItem("qrHistory")) || [];
+
+history.forEach(item => {
+
+    let li = document.createElement("li");
+
+    li.textContent = item;
+
+    list.appendChild(li);
+
+});
+```
+
+}
